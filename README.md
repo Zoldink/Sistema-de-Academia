@@ -1,2 +1,9 @@
-# Sistema-de-Academia
+# Sobre 
+### Sistema-de-Academia
 Neste projeto iremos desenvolver um sistemas para usuários de uma academia, controle de matricula/login , pagamento, fidelidade, pendencias, planos e demais funcionalidades.
+
+# Integrantes
+.Eduardo Antunes
+.Eric Gomes
+.Gustavo de Aguilar
+.Jefferson Marlon
