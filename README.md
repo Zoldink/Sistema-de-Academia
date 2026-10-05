@@ -13,8 +13,8 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 ## Professor
 
 * Jardell Fillipe da Silva
-
-## Instruções de utilização
+* 
+## Instruções de utilização.
 
 # Documentação
 
