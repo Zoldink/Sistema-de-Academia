@@ -1,5 +1,5 @@
 
-# Modelagem do Sistema - PulseGym
+# Modelagem do Sistema - NexusFit
 
 Esta seção apresenta a estrutura estática do sistema **NexusFit** sob a ótica da Orientação a Objetos. O desenho foi concebido para suportar dois perfis distintos de acesso através de um módulo de autenticação unificado: **Clientes (Alunos)** e **Administradores (Funcionários)**. 
 
