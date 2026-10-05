@@ -64,7 +64,7 @@ classDiagram
 
 ```
 
-##2.2. Classes e Suas Responsabilidades
+## 2.2. Classes e Suas Responsabilidades
 
 Usuario (Classe Base / Abstrata):
 
