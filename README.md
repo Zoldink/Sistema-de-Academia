@@ -14,6 +14,9 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 
 * Jardell Fillipe da Silva
 
+## Objetivos
+
+
 ## Instruções de utilização.
 
 # Documentação
