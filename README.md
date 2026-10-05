@@ -12,7 +12,7 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 
 ## Professor
 
-* Jardell Fillipe da Silva 
+* Jardell Fillipe da Silva
 
 ## Instruções de utilização
 
@@ -24,11 +24,10 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 <li><a href=""> Metodologia</a></li>
 <li><a href=""> Modelagem dos processos de negócios</a></li>
 <li><a href=""> Projeto de interface</a></li>
-
-<li><a href="docs/10-Conclusao.md"> Conclusão</a></li>
-<li><a href="docs/11-Referencias.md"> Referências</a></li>
+<li><a href=""> Conclusão</a></li>
+<li><a href=""> Referências</a></li>
 </ol>
 
 # Código
 
-* <a href="src/README.md">Código</a>
+* <a href="">Código</a>
