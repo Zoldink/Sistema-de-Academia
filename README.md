@@ -13,7 +13,7 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 ## Professor
 
 * Jardell Fillipe da Silva
-* 
+
 ## Instruções de utilização.
 
 # Documentação
@@ -25,8 +25,6 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 <li><a href=""> Modelagem dos processos de negócios</a></li>
 <li><a href=""> Projeto de interface</a></li>
 <li><a href=""> Conclusão</a></li>
-<li><a href=""> Referências</a></li>
-</ol>
 
 # Código
 
