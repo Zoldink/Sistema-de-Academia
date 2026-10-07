@@ -24,64 +24,100 @@ classDiagram
     class Aluno {
         -string Matricula
         -string StatusMatricula
-        -int PontosFidelidade
-        +ConsultarPlanoAtivo()
-        +VerificarPendenciasFinanceiras()
-        +ConsultarExtratoFidelidade()
+        +ConsultarPagamentos()
+        +CancelarMatricula()
+        +MudarPlano(Plano novoPlano)
+        +VerFicha()
     }
     
     class Funcionario {
         -string Cargo
         -double Salario
         -string NivelPermissao
-        +CadastrarNovoPlano()
-        +RegistrarPagamentoAluno()
-        +GerenciarMatriculas()
-        +EmitirRelatorioInadimplencia()
+        +ConsultarPendencias(Aluno aluno)
+        +CobrarPagamento(Aluno aluno)
+        +ConsultarDadosAluno(Aluno aluno)
+        +CancelarMatricula(Aluno aluno)
+        +FazerFichaAluno(Aluno aluno)
     }
     
     class Plano {
-        -int IdPlano
-        -string NomePlano
-        -double ValorMensal
-        -int DuracaoMeses
-        +AtualizarValorPlano(double novoValor)
+        <<abstract>>
+        #string NomePlano
+        #int DiasSemanaPermitidos
+        #bool PermiteBike
+        #bool PermiteBox
+    }
+
+    class PlanoDiamante {
+        -int ConvitesAmigosMes = 3
+    }
+
+    class PlanoOuro {
+    }
+
+    class PlanoPrata {
+        -int AulasEscolhaMes = 1
     }
     
     class Pagamento {
         -int IdPagamento
-        -double Valor
-        -DateTime DataVencimento
-        -string StatusPagamento
-        +ProcessarPagamento()
-        +MarcarComoPendente()
+        -string StatusAtivoOuInativo
+        +VerificarStatus()
+        +EfetuarCobranca()
+    }
+
+    class FichaTreino {
+        -string DetalhesExercicios
+        -DateTime DataCriacao
+        +AtualizarFicha()
     }
 
     Usuario <|-- Aluno
     Usuario <|-- Funcionario
+    Plano <|-- PlanoDiamante
+    Plano <|-- PlanoOuro
+    Plano <|-- PlanoPrata
     Aluno "1" --> "1" Plano : possui contrato
-    Aluno "1" --> "*" Pagamento : gera faturas
+    Aluno "1" --> "*" Pagamento : possui histórico
+    Aluno "1" --> "1" FichaTreino : possui
 
 ```
 
 ## 2.2. Classes e Suas Responsabilidades
 
-Usuario (Classe Base / Abstrata):
+Usuario (Classe Abstrata Base):
 
-Papel: Representa o conceito genérico de qualquer pessoa cadastrada no sistema. Concentra os atributos fundamentais de identificação (Nome, Email, Cpf, Senha) e o comportamento padrão de segurança (RealizarLogin).
+Papel: Concentra os atributos genéricos de autenticação (Nome, Email, Cpf, Senha) e o método comum de login para validar o acesso no sistema.
 
-Aluno (Especialização de Usuário - Painel do Cliente):
+Aluno (Perfil Cliente - Herda de Usuario):
 
-Papel: Modela o aluno matriculado. Possui atributos próprios como Matricula, StatusMatricula e PontosFidelidade. Na tela do cliente, é responsável por carregar as informações exclusivas do frequentador (como extrato de pontos e histórico do plano).
+Papel: Representa o aluno da academia. Possui atributos de identificação como Matricula e StatusMatricula. Suas funcionalidades incluem escolher/mudar de plano, consultar pagamentos, verificar o status da matrícula, cancelar o plano e visualizar a ficha de treino.
 
-Funcionario (Especialização de Usuário - Painel do Administrador):
+Funcionario (Perfil Administrador - Herda de Usuario):
 
-Papel: Modela a equipe interna da academia. Possui atributos corporativos (Cargo, Salario, NivelPermissao). Na tela administrativa, capacita o operador a gerenciar cadastros, baixar pagamentos e configurar o sistema.
+Papel: Representa a equipe gestora. Suas funcionalidades englobam consultar pendências (verificando se o status está ativo ou inativo), efetuar cobranças, consultar os dados cadastrais completos dos alunos (nome, e-mail, CPF, senha e matrícula), cancelar matrículas e criar ou atualizar a ficha de treino do aluno.
 
-Plano:
+Plano (Hierarquia de Planos):
 
-Papel: Modela os pacotes de serviços comercializados (ex: Mensalidade, Trimestral). Armazena o valor, a duração e as regras de vigência, sendo exibido tanto no painel do aluno quanto nas opções de gestão do administrador.
+Papel: Classe base abstrata para os pacotes de treino. Suas especializações definem as regras específicas de cada categoria:
+
+PlanoDiamante: Acesso 7 dias por semana, aulas de bicicleta, aulas de box e direito a levar 3 amigos por mês.
+
+PlanoOuro: Acesso 7 dias por semana, aulas de bicicleta e aulas de box.
+
+PlanoPrata (Básico): Acesso 5 dias por semana e direito a 1 aula por mês de livre escolha.
 
 Pagamento:
 
-Papel: Modela as faturas e transações financeiras geradas para os alunos. Controla o valor, a data de vencimento e o status atual (Pago ou Pendente), alimentando o módulo de controle de pendências.
+Papel: Controla a situação financeira da mensalidade, permitindo verificar se o status está ativo ou inativo e disparar cobranças.
+
+FichaTreino:
+
+Papel: Armazena os dados dos exercícios recepcionados e montados pelo funcionário para acompanhamento do aluno.
+
+## 2.3. Relacionamentos entre as Classes
+
+Herança: As classes Aluno e Funcionario herdam de Usuario. Da mesma forma, os tipos de planos (PlanoDiamante, PlanoOuro, PlanoPrata) herdam de Plano.
+
+Associação: O Aluno possui um Plano ativo, um histórico de Pagamento e uma FichaTreino associada, enquanto o Funcionario interage diretamente gerindo os dados e pendências do aluno.
