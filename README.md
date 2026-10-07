@@ -23,12 +23,11 @@ Neste projeto iremos desenvolver um sistemas para usuários de uma academia, con
 
 <ol>
 <li><a href="Documentação.md"> Documentação de contexto</a></li>
-<li><a href=""> Especificação do projeto</a></li>
 <li><a href="Metodologia.md"> Metodologia</a></li>
 <li><a href="Modelagem.md"> Modelagem dos processos de negócios</a></li>
-<li><a href="Prototipo.md"> Projeto de interface</a></li>
-<li><a href="Conclusão.md"> Conclusão</a></li>
+<li><a href="Wireframe.md"> Projeto de interface</a></li>
+<li><a href="Comportamento.md"> Conclusão</a></li>
 
 # Código
 
-* <a href="">Código</a>
+<a href="Program.cs">Código</a>
